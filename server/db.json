@@ -1,0 +1,44 @@
+{
+  "Item" : [
+    {
+      "id": 1,
+      "name": "Choco Roll Danish",
+      "description": "Lezatnya coklat premium dalam balutan roti danish yang lembut.",
+      "price": 10111,
+      "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2022/08/choco-roll-600x368.jpg",
+      "UserId": 2,
+      "CategoryId": 2
+    },
+    {
+      "id": 2,
+      "name": "Chocolate Chip Cookie",
+      "description": "Cookie dengan topping chocolate chip.",
+      "price": 37910,
+      "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/choco-cookies-600x368.jpg",
+      "UserId": 2,
+      "CategoryId": 3
+    },
+    {
+      "id": 3,
+      "name": "Beef & Cheese Croissant",
+      "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
+      "price": 10021,
+      "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
+      "UserId": 1,
+      "CategoryId": 2
+    },
+    {
+      "id": 4,
+      "name": "Almond Croissant",
+      "description": "Croissant dengan irisan almond dan isi krim.",
+      "price": 10021,
+      "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+      "UserId": 1,
+      "CategoryId": 2
+    }
+  ]
+}
+
+
+
+

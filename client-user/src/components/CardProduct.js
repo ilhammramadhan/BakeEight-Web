@@ -6,7 +6,6 @@ import CardCol from "./CardCol"
 
 const CardProduct = () => {
   const {data : item} = useFetch('http://localhost:5000/Item')
-  console.log(item)
   return (
     <Container className="mt-4">
       <Row>

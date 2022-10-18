@@ -1,4 +1,4 @@
-import { Card, Col } from "react-bootstrap"
+import { Card, Col,Button } from "react-bootstrap"
 
 const CardCol = ({ cake }) => {
   return (
@@ -10,6 +10,7 @@ const CardCol = ({ cake }) => {
           <Card.Text>
             {cake.description}
           </Card.Text>
+          <Button variant="outline-primary" className="justify-content-end">Detail</Button>
         </Card.Body>
       </Card>
     </Col>

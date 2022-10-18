@@ -3,15 +3,38 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import ImageCarousel from './components/ImageCarousel';
 import CakeDetail from './components/CakeDetail';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Layout from './pages/Layout';
+import HomePage from './pages/HomePage';
+
+const router = createBrowserRouter([
+  {
+    element: <Layout/>,
+    children: [
+      {
+        path: "/home",
+        element: <HomePage/>
+      },
+      {
+        path : "/detail/:id",
+        element : <CakeDetail/>
+      }
+    ]
+  },
+]);
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <RouterProvider router={router} />
+      {/* <Header/>
       <ImageCarousel/>
-      <CardProduct/> 
-      <CakeDetail/>
-      <Footer/>
+      <CardProduct/>  */}
+      {/* <CakeDetail />
+      <Footer /> */}
     </div>
   );
 }

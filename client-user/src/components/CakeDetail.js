@@ -1,6 +1,5 @@
-import { Container, Card, Col, Row } from "react-bootstrap"
+import { Container, Card, Col, Row,Button } from "react-bootstrap"
 import {StarFill} from "react-bootstrap-icons"
-import * as Icon from 'react-bootstrap-icons';
 const CakeDetail = () => {
   return (
     

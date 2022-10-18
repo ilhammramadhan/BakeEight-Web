@@ -1,7 +1,3 @@
-import CardProduct from './components/CardProduct';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import ImageCarousel from './components/ImageCarousel';
 import CakeDetail from './components/CakeDetail';
 import {
   createBrowserRouter,
@@ -30,11 +26,6 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />
-      {/* <Header/>
-      <ImageCarousel/>
-      <CardProduct/>  */}
-      {/* <CakeDetail />
-      <Footer /> */}
     </div>
   );
 }

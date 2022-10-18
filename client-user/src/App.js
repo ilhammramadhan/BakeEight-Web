@@ -1,13 +1,17 @@
 import CardProduct from './components/CardProduct';
+import Footer from './components/Footer';
 import Header from './components/Header';
-import ProductDetail from './components/ProductDetail';
+import ImageCarousel from './components/ImageCarousel';
+import CakeDetail from './components/CakeDetail';
 
 function App() {
   return (
     <div className="App">
       <Header/>
+      <ImageCarousel/>
       <CardProduct/> 
-      <ProductDetail/>
+      <CakeDetail/>
+      <Footer/>
     </div>
   );
 }

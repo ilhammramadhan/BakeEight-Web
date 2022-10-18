@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import ListCakes from "./components/ListCakes";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
@@ -9,6 +10,7 @@ function App() {
       <Header/>
      <Login/>
      <Register/>
+     <ListCakes/>
     </div>
   );
 }

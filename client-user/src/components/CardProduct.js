@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react"
+
 import { Container, Row } from "react-bootstrap"
+import useFetch from "../hooks/useFetch"
 import CardCol from "./CardCol"
 
+
 const CardProduct = () => {
-  const [item, setItem] = useState([])
-  useEffect(() => {
-    fetch('http://localhost:5000/Item')
-      .then((response) => response.json())
-      .then((data) => setItem(data));
-  }, [])
+  const {data : item} = useFetch('http://localhost:5000/Item')
+  console.log(item)
   return (
     <Container className="mt-4">
       <Row>

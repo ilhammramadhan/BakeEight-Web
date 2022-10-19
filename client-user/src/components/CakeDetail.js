@@ -1,10 +1,20 @@
 import { Container, Card, Col, Row } from "react-bootstrap"
+import {useEffect} from 'react'
+import {useSelector,useDispatch} from 'react-redux'
+import { fetchProducts } from "../store/actions/productAction"
 import { StarFill } from "react-bootstrap-icons"
-import useFetch from "../hooks/useFetch"
 import { useParams } from 'react-router-dom';
+
+
+
 const CakeDetail = () => {
   const { id } = useParams()
-  const { data } = useFetch('http://localhost:5000/Item/' + id)
+  const {data} = useSelector((state) => state)
+  const dispatch = useDispatch()
+
+  useEffect(()=> {
+    dispatch(fetchProducts('http://localhost:5000/Item/' + id))
+  },[])
 
   return (
     <Container fluid className="d-flex justify-content-center mt-2">

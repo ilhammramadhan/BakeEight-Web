@@ -1,31 +1,19 @@
-import CakeDetail from './components/CakeDetail';
 import {
-  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Layout from './pages/Layout';
-import HomePage from './pages/HomePage';
+import router from "./router";
+import { Provider as ReduxProvider} from 'react-redux'
+import store from "./store";
 
-const router = createBrowserRouter([
-  {
-    element: <Layout/>,
-    children: [
-      {
-        path: "/home",
-        element: <HomePage/>
-      },
-      {
-        path : "/detail/:id",
-        element : <CakeDetail/>
-      }
-    ]
-  },
-]);
+
+
 
 function App() {
   return (
     <div className="App">
+      <ReduxProvider store={store}>
       <RouterProvider router={router} />
+      </ReduxProvider>
     </div>
   );
 }

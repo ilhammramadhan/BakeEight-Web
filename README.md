@@ -38,10 +38,10 @@ Pada tugas ini, saya memilih Tema Restaurant dengan mengambil referensi dari B. 
 
 Target:
 
-- [ ] Lecture - Custom Hooks
-- [ ] Rules of Hooks
-- [ ] Lecture - React-Router
-- [ ] Membuat router user-side (min: home, detail)
+- [x] Lecture - Custom Hooks
+- [x] Rules of Hooks
+- [x] Lecture - React-Router
+- [x] Membuat router user-side (min: home, detail)
 - [ ] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [ ] Membuat privateRoute untuk admin
 

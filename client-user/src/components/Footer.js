@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <footer className="page-footer font-small blue pt-4">
+    <footer className="page-footer font-small blue pt-4 bg-warning mt-4" >
       <div className="container-fluid text-center text-md-left">
         <div className="row">
           <div className="col-md-6 mt-md-0 mt-3">
@@ -16,9 +16,6 @@ const Footer = () => {
             <h5 className="text-uppercase">Links</h5>
             <ul className="list-unstyled">
               <li><a href="#!">Link 1</a></li>
-              <li><a href="#!">Link 2</a></li>
-              <li><a href="#!">Link 3</a></li>
-              <li><a href="#!">Link 4</a></li>
             </ul>
           </div>
 

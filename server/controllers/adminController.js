@@ -1,6 +1,6 @@
 const { comparePassword } = require('../helpers/bcryptjs');
 const { payloadToToken } = require('../helpers/jwt');
-const {User,Item,Category, sequelize} = require('../models');
+const {User,Item,Category,Ingredient,sequelize} = require('../models');
 
 
 class AdminController {
@@ -46,7 +46,11 @@ class AdminController {
   static async readAllItem(req,res,next){
     try {
       const allItems = await Item.findAll({
-        include : Category
+        include : [{
+          model : Category
+        },{
+          model : Ingredient
+        }]
       })
       res.status(200).json(allItems)
     } catch (error) {
@@ -87,10 +91,16 @@ class AdminController {
     try {
       const {id : UserId} = req.user
       const {name,description,price,imgUrl,CategoryId , Ingredients} = req.body
-      const newUser = await Item.create({name,description,price,imgUrl,CategoryId,UserId},{ transaction: t })
-      const ingredientInput = Ingredients 
-    } catch (error) {
-      
+      const newItem = await Item.create({name,description,price,imgUrl,CategoryId,UserId},{ transaction: t })
+      const ingredientInput = Ingredients.map(el => {
+        return {name : el , ItemId : newItem.id}
+      })
+      await Ingredient.bulkCreate(ingredientInput,{transaction: t})
+      await t.commit()
+      res.status(201).json({message : 'Item created successfully'})
+    } catch (error) { 
+      await t.rollback()
+      next(error)
     }
   }
 }

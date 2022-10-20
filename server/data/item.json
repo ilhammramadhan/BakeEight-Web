@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Beef & Cheese Croissant",
+    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Almond Croissant",
+    "description": "Croissant dengan irisan almond dan isi krim.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Beef & Cheese Croissant",
+    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Almond Croissant",
+    "description": "Croissant dengan irisan almond dan isi krim.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Beef & Cheese Croissant",
+    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Almond Croissant",
+    "description": "Croissant dengan irisan almond dan isi krim.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Beef & Cheese Croissant",
+    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  },
+  {
+    "name": "Almond Croissant",
+    "description": "Croissant dengan irisan almond dan isi krim.",
+    "price": 10021,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "UserId": 1,
+    "CategoryId": 2
+  }
+]

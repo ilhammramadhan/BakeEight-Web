@@ -1,8 +1,18 @@
-import { Container, Table,Button } from "react-bootstrap"
-import {BsTrash} from "react-icons/bs"
+import { Container, Table } from "react-bootstrap"
+import TableRowList from "./TableRowList"
+import {useEffect} from 'react'
+import {useDispatch,useSelector} from 'react-redux'
+import { fetchEffectItem } from "../store/actions/action"
 
 
 const ListCakes = () =>{
+  const {items} = useSelector((state) => state)
+  console.log(items)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchEffectItem())
+  },[])
+  
   return (
     <Container className="mt-4">
       <button type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
@@ -14,26 +24,16 @@ const ListCakes = () =>{
         <th>Image</th>
         <th>Price</th>
         <th>Category</th>
+        <th>Ingredients</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Croissant</td>
-        <td><img src="https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg" width={120} height={80} alt="croissant" /></td>
-        <td>15.000</td>
-        <td>Breakfat</td>
-        <td><Button variant="dark"><BsTrash className="text-danger" size={20} /></Button></td>
-      </tr>
-      <tr>
-      <td>2</td>
-        <td>Croissant</td>
-        <td><img src="https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg" width={120} height={80} alt="croissant" /></td>
-        <td>15.000</td>
-        <td>Breakfat</td>
-        <td><Button variant="dark"><BsTrash className="text-danger" size={20}/></Button></td>
-      </tr>
+      {
+        items.map((item,index) =>{
+          return <TableRowList key={index} item={item} index={index}/>
+        })
+      }
     </tbody>
   </Table>
     </Container>

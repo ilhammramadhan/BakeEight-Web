@@ -2,11 +2,11 @@ import { Container, Table } from "react-bootstrap"
 import TableRowList from "./TableRowList"
 import {useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
-import { fetchEffectItem } from "../store/actions/action"
+import { fetchEffectItem } from "../store/actions/itemAction"
 
 
 const ListCakes = () =>{
-  const {items} = useSelector((state) => state)
+  const {items} = useSelector((state) => state.item)
   console.log(items)
   const dispatch = useDispatch()
   useEffect(()=>{

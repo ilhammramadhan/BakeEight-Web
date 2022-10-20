@@ -103,6 +103,14 @@ class AdminController {
       next(error)
     }
   }
+  static async readAllCategory(req,res,next){
+    try {
+      const allCategories = await Category.findAll()
+      res.status(200).json(allCategories)
+    } catch (error) {
+      next(error)
+    }
+  }
 }
 
 

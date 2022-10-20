@@ -5,7 +5,7 @@ const adminRouter = require('./admin');
 
 
 router.use('/admin' , adminRouter)
-router.use('/user',userRouter)
+router.use('/customer',userRouter)
 
 
 

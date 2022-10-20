@@ -46,7 +46,11 @@ class AdminController {
   static async readAllItem(req,res,next){
     try {
       const allItems = await Item.findAll({
-        include : Category
+        include : [{
+          model : Category
+        },{
+          model : Ingredient
+        }]
       })
       res.status(200).json(allItems)
     } catch (error) {

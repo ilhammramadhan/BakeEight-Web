@@ -1,0 +1,14 @@
+[
+  {
+    "ItemId" : 1,
+    "name" : "bread"
+  },
+  {
+    "ItemId" : 1,
+    "name" : "chocolate"
+  },
+  {
+    "ItemId" : 1,
+    "name" : "cheese"
+  }
+]

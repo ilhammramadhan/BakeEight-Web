@@ -5,6 +5,7 @@ import {BsTrash} from "react-icons/bs"
 const ListCakes = () =>{
   return (
     <Container className="mt-4">
+      <button type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
       <Table striped bordered hover variant="dark">
     <thead>
       <tr>

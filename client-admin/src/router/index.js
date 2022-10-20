@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import ListCakes from "../components/ListCakes";
 import Layout from "../pages/Layout.js";
+import AddProduct from "../pages/AddProduct";
 
 
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path : '/',
         element : <ListCakes/>
+      },
+      {
+        path : '/add',
+        element : <AddProduct/>
       }
     ]
   }

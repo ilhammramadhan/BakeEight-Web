@@ -111,6 +111,15 @@ class AdminController {
       next(error)
     }
   }
+  static async addNewCategory(req,res,next){
+    try {
+      const {name} = req.body
+      await Category.create({name})
+      res.status(201).json({message : 'Success add category'})
+    } catch (error) {
+      next(error)
+    }
+  }
 }
 
 

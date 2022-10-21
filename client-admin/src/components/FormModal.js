@@ -1,9 +1,21 @@
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-
-
-const ProductForm = ()=>{
+function FormModal(props) {
   return (
-    <div className="bg-white d-flex justify-content-center">
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Add new Product
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <div className="bg-white d-flex justify-content-center">
       <div className="py-2 px-30 my-8">
         <form
           action=""
@@ -142,7 +154,12 @@ const ProductForm = ()=>{
         </form>
       </div>
     </div>
-  )
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
 }
 
-export default ProductForm
+export default FormModal

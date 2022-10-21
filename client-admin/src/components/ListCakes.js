@@ -1,11 +1,13 @@
 import { Container, Table } from "react-bootstrap"
 import TableRowList from "./TableRowList"
-import {useEffect} from 'react'
+import {useEffect,useState} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import { fetchEffectItem } from "../store/actions/itemAction"
+import FormModal from "./FormModal"
 
 
 const ListCakes = () =>{
+  const [modalShow, setModalShow] = useState(false);
   const {items} = useSelector((state) => state.item)
   console.log(items)
   const dispatch = useDispatch()
@@ -15,7 +17,10 @@ const ListCakes = () =>{
   
   return (
     <Container className="mt-4">
-      <button type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
+     
+      <button onClick={() => setModalShow(true) } type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
+      <FormModal show={modalShow}
+        onHide={() => setModalShow(false)} />
       <Table striped bordered hover variant="dark">
     <thead>
       <tr>

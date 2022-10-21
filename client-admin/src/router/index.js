@@ -5,7 +5,8 @@ import {
 } from "react-router-dom";
 import ListCakes from "../components/ListCakes";
 import Layout from "../pages/Layout.js";
-import AddProduct from "../pages/AddProduct";
+import Register from "../components/Register";
+import Category from "../components/Category";
 
 
 
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
     element: <Login/>,
   },
   {
+    path : '/register',
+    element : <Register/>
+  },
+  
+  {
     element : <Layout/>,
     children : [
       {
@@ -23,9 +29,9 @@ const router = createBrowserRouter([
         element : <ListCakes/>
       },
       {
-        path : '/add',
-        element : <AddProduct/>
-      }
+        path : '/category',
+        element : <Category/>
+      },
     ]
   }
 ]);

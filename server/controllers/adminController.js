@@ -90,19 +90,60 @@ class AdminController {
     const t = await sequelize.transaction()
     try {
       const {id : UserId} = req.user
-      const {name,description,price,imgUrl,CategoryId , Ingredients} = req.body
+      console.log(req.body)
+      const {name,description,price,imgUrl,CategoryId , ingredients} = req.body
+      
       const newItem = await Item.create({name,description,price,imgUrl,CategoryId,UserId},{ transaction: t })
-      const ingredientInput = Ingredients.map(el => {
-        return {name : el , ItemId : newItem.id}
+      const ingredientInput = ingredients.map(el => {
+        return {name : el.name , ItemId : newItem.id}
       })
       await Ingredient.bulkCreate(ingredientInput,{transaction: t})
       await t.commit()
       res.status(201).json({message : 'Item created successfully'})
     } catch (error) { 
+      console.log(error)
       await t.rollback()
+
       next(error)
     }
   }
+  static async readAllCategory(req,res,next){
+    try {
+      const allCategories = await Category.findAll()
+      res.status(200).json(allCategories)
+    } catch (error) {
+      next(error)
+    }
+  }
+  static async addNewCategory(req,res,next){
+    try {
+      const {name} = req.body
+      await Category.create({name})
+      res.status(201).json({message : 'Success add category'})
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
+  }
+  static async deleteCategory(req,res,next){
+    try {
+      const {categoryId : id} = req.params
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      await Category.destroy({
+        where : {
+          id
+        }
+      })
+      res.status(200).json({msg : 'Category has been deleted'})
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
+  }
+  
 }
 
 

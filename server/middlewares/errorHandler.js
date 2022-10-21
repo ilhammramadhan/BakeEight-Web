@@ -15,7 +15,11 @@ const errorHandler = (err,req,res,next) => {
   }else if (err.name === "Empty Email"){
     code = 400,
     message = "Email is required"
-  }else if (err.name === "Empty Password"){
+  }else if (err.name === "Not Found"){
+    code = 404,
+    message = "Data not found"
+  }
+  else if (err.name === "Empty Password"){
     code = 400,
     message = "Password is required"
   }else if (err.name === "Invalid Input"){

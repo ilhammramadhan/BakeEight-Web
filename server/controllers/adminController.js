@@ -174,7 +174,29 @@ class AdminController {
       next(error)
     }
   }
+  static async editItem(req,res,next){
+    try {
+      const {id : UserId} = req.user
+      const {itemId : id} = req.params
+      const {name,description,price,imgUrl,CategoryId} = req.body
+      const availItem = await Item.findByPk(id)
+      if(!availItem){
+        throw {name : 'Not Found'}
+      }
+      await Item.update({name,description,price,imgUrl,CategoryId,UserId},{
+        where : {
+          id
+        }
+      })
+      
+      res.status(201).json({message : 'Item created successfully'})
+    } catch (error) { 
+      console.log(error)
+      next(error)
+    }
+  }
 }
+
 
 
 module.exports = AdminController

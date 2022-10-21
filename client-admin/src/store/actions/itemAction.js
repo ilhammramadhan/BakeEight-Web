@@ -49,3 +49,23 @@ export const deleteEffectItem = (id) => {
     }
   }
 }
+
+export const addItemEffect = (inputItem) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:3000/admin/items`, {
+        method: 'POST',
+        headers: {
+          access_token: localStorage.getItem('access_token'),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputItem)
+      })
+      if (!response.ok) throw new Error('Something Wrong!')
+      dispatch(fetchEffectItem())
+    } catch (error) {
+      console.log(error)
+    } finally {
+    }
+  }
+}

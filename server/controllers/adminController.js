@@ -90,16 +90,20 @@ class AdminController {
     const t = await sequelize.transaction()
     try {
       const {id : UserId} = req.user
-      const {name,description,price,imgUrl,CategoryId , Ingredients} = req.body
+      console.log(req.body)
+      const {name,description,price,imgUrl,CategoryId , ingredients} = req.body
+      
       const newItem = await Item.create({name,description,price,imgUrl,CategoryId,UserId},{ transaction: t })
-      const ingredientInput = Ingredients.map(el => {
-        return {name : el , ItemId : newItem.id}
+      const ingredientInput = ingredients.map(el => {
+        return {name : el.name , ItemId : newItem.id}
       })
       await Ingredient.bulkCreate(ingredientInput,{transaction: t})
       await t.commit()
       res.status(201).json({message : 'Item created successfully'})
     } catch (error) { 
+      console.log(error)
       await t.rollback()
+
       next(error)
     }
   }

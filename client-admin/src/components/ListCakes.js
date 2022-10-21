@@ -13,7 +13,7 @@ const ListCakes = () =>{
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(fetchEffectItem())
-  },[])
+  },[dispatch])
   
   return (
     <Container className="mt-4">

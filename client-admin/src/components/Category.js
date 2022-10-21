@@ -33,7 +33,7 @@ const Category = ()=>{
   <tbody>
     {
       categories.map((category,index)=> {
-        return <TableRowCategory category = {category} index ={index}/>
+        return <TableRowCategory key={index} category = {category} index ={index}/>
       })
     }
   </tbody>

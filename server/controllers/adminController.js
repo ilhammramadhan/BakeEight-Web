@@ -117,9 +117,29 @@ class AdminController {
       await Category.create({name})
       res.status(201).json({message : 'Success add category'})
     } catch (error) {
+      console.log(error)
       next(error)
     }
   }
+  static async deleteCategory(req,res,next){
+    try {
+      const {categoryId : id} = req.params
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      await Category.destroy({
+        where : {
+          id
+        }
+      })
+      res.status(200).json({msg : 'Category has been deleted'})
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
+  }
+  
 }
 
 

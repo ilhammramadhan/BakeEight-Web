@@ -14,6 +14,8 @@ const FormCategoryModal= (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEffectCategory(inputCategory))
+    props.onHide()
+    setInputCategory({name : ''})
   }
   return (
     <>
@@ -30,19 +32,20 @@ const FormCategoryModal= (props) => {
                 placeholder="category name"
                 autoFocus
                 value = {inputCategory.name}
-                onChange={(e) =>  {setInputCategory({...inputCategory,name:e.target.value})}}
+                onChange={(e) =>  {setInputCategory({name:e.target.value})}}
               />
             </Form.Group>
-          </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide} variant="secondary" >
+            <Modal.Footer>
+            <Button onClick={props.onHide} variant="secondary" >
           Close
         </Button>
-        <Button variant="primary" >
+            <Button type ="submit" variant="primary" >
           Submit
         </Button>
       </Modal.Footer>
+          </Form>
+      </Modal.Body>
+      
     </Modal>
   </>
   )

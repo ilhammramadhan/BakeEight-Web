@@ -1,7 +1,14 @@
 import {BsTrash} from "react-icons/bs"
 import { Button } from "react-bootstrap"
+import { useDispatch } from "react-redux"
+import { deleteEffectItem } from "../store/actions/itemAction"
 
 const TableRowList = ({item,index}) => {
+  const dispatch = useDispatch()
+  const deleteHandle = (e,id) => {
+    e.preventDefault();
+    dispatch(deleteEffectItem(id))
+  }
   return (
     <>
      <tr>
@@ -15,13 +22,11 @@ const TableRowList = ({item,index}) => {
           item.Ingredients?.map((ingredient,index)=>{
             return <> <p>- {ingredient.name}</p>
             </>
-            
-           
           })
         }
         </td>
         
-        <td><Button variant="dark"><BsTrash className="text-danger" size={20} /></Button></td>
+        <td><Button variant="dark"><BsTrash className="text-danger" size={20} onClick={(e) => deleteHandle(e,item.id)} /></Button></td>
       </tr>
     </>
    

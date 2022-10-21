@@ -12,7 +12,7 @@ const Category = ()=>{
 
   useEffect(() => {
     dispatch(fetchEffectCategory())
-  })
+  },[dispatch])
 
 
   return (

@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function FormModal(props) {
+  
   return (
     <Modal
       {...props}
@@ -15,15 +16,12 @@ function FormModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <div className="bg-white d-flex justify-content-center">
+      <div className="bg-white w-full">
       <div className="py-2 px-30 my-8">
         <form
           action=""
           className="space-y-6 w-1/3 mx-auto"
         >
-          <h1 className="text-2xl font-semibold">
-              TEST
-          </h1>
           <div>
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
               Product Name <span className="text-red-500">*</span>

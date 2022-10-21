@@ -32,3 +32,20 @@ export const fetchEffectItem = () => {
     }
   }
 }
+
+export const deleteEffectItem = (id) => {
+  return async (dispatch) => {
+    try {
+      await fetch('http://localhost:3000/admin/items/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          access_token: localStorage.getItem('access_token')
+        },
+      })
+      dispatch(fetchEffectItem())
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}

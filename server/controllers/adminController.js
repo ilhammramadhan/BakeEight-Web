@@ -143,7 +143,37 @@ class AdminController {
       next(error)
     }
   }
-  
+  static async categoryById (req,res,next) {
+    try {
+      const {categoryId : id} = req.params
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      res.status(200).json(availCategory)
+    } catch (error) {
+      next(error)
+    }
+  }
+  static async editCategory(req,res,next){
+    try {
+      const {categoryId : id} = req.params
+      const {name} = req.body
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      await Category.update({name},{
+        where : {
+          id
+        }
+      })
+      res.status(200).json({message : 'Success update category'})
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
+  }
 }
 
 

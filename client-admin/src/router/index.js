@@ -1,4 +1,3 @@
-import Login from "../components/Login";
 import {
   createBrowserRouter,
 
@@ -7,6 +6,7 @@ import ListCakes from "../components/ListCakes";
 import Layout from "../pages/Layout.js";
 import Register from "../components/Register";
 import Category from "../components/Category";
+import LoginPage from "../pages/LoginPage";
 
 
 
@@ -14,7 +14,7 @@ import Category from "../components/Category";
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login/>,
+    element: <LoginPage/>,
   },
   {
     path : '/register',

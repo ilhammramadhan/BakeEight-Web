@@ -143,8 +143,60 @@ class AdminController {
       next(error)
     }
   }
-  
+  static async categoryById (req,res,next) {
+    try {
+      const {categoryId : id} = req.params
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      res.status(200).json(availCategory)
+    } catch (error) {
+      next(error)
+    }
+  }
+  static async editCategory(req,res,next){
+    try {
+      const {categoryId : id} = req.params
+      const {name} = req.body
+      const availCategory = await Category.findByPk(id)
+      if(!availCategory){
+        throw {name : 'Not Found'}
+      }
+      await Category.update({name},{
+        where : {
+          id
+        }
+      })
+      res.status(200).json({message : 'Success update category'})
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
+  }
+  static async editItem(req,res,next){
+    try {
+      const {id : UserId} = req.user
+      const {itemId : id} = req.params
+      const {name,description,price,imgUrl,CategoryId} = req.body
+      const availItem = await Item.findByPk(id)
+      if(!availItem){
+        throw {name : 'Not Found'}
+      }
+      await Item.update({name,description,price,imgUrl,CategoryId,UserId},{
+        where : {
+          id
+        }
+      })
+      
+      res.status(201).json({message : 'Item created successfully'})
+    } catch (error) { 
+      console.log(error)
+      next(error)
+    }
+  }
 }
+
 
 
 module.exports = AdminController

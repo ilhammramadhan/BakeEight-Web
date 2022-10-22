@@ -1,12 +1,11 @@
 import {
   createBrowserRouter,
-
+  redirect
 } from "react-router-dom";
-import ListCakes from "../components/ListCakes";
 import Layout from "../pages/Layout.js";
-import Register from "../components/Register";
-import Category from "../components/Category";
 import LoginPage from "../pages/LoginPage";
+import HomeListItem from "../pages/HomeListItem";
+import CategoryPage from "../pages/CategoryPage.js";
 
 
 
@@ -15,24 +14,29 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage/>,
+    loader: () => {
+      if (localStorage.getItem("access_token")) {
+        throw redirect("/");
+      }
+    },
   },
-  {
-    path : '/register',
-    element : <Register/>
-  },
-  
   {
     element : <Layout/>,
     children : [
       {
         path : '/',
-        element : <ListCakes/>
+        element : <HomeListItem/>
       },
       {
         path : '/category',
-        element : <Category/>
+        element : <CategoryPage/>
       },
-    ]
+    ],
+    loader: () => {
+      if (!localStorage.getItem("access_token")) {
+        throw redirect("/login");
+      }
+    },
   }
 ]);
 

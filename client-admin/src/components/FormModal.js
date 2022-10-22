@@ -50,13 +50,15 @@ function FormModal(props) {
     setIngredients([...ingredients, {}])
   }
 
+
   const handleSubmit= (e) => {
     e.preventDefault()
     dispatch(addItemEffect({
       ...inputAddItem,
       ingredients
     }))
-    props.onHide()
+    
+    
     setInputAddItem({
       name: "",
       description: "",
@@ -230,6 +232,7 @@ function FormModal(props) {
                   Submit
                 </button>
                 <Button onClick={props.onHide}>Close</Button>
+                
               </Modal.Footer>
             </form>
           </div>

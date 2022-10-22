@@ -53,10 +53,10 @@ const Register = (props) => {
 
   return (
     <Modal {...props} >
-      <Modal.Header closeButton>
-        <Modal.Title></Modal.Title>
+      <Modal.Header closeButton >
+        <Modal.Title > Register New Admin</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body >
         <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image'>
           <div className='mask gradient-custom-3'></div>
           <MDBCard className='bg-dark text-white m-5' style={{ maxWidth: '600px' }}>

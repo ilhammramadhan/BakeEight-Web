@@ -191,7 +191,6 @@ class AdminController {
       
       res.status(201).json({message : 'Item created successfully'})
     } catch (error) { 
-      console.log(error)
       next(error)
     }
   }

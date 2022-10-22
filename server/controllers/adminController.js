@@ -54,6 +54,7 @@ class AdminController {
       })
       res.status(200).json(allItems)
     } catch (error) {
+
       next(error)
     }
   }
@@ -90,7 +91,6 @@ class AdminController {
     const t = await sequelize.transaction()
     try {
       const {id : UserId} = req.user
-      console.log(req.body)
       const {name,description,price,imgUrl,CategoryId , ingredients} = req.body
       
       const newItem = await Item.create({name,description,price,imgUrl,CategoryId,UserId},{ transaction: t })
@@ -101,7 +101,6 @@ class AdminController {
       await t.commit()
       res.status(201).json({message : 'Item created successfully'})
     } catch (error) { 
-      console.log(error)
       await t.rollback()
 
       next(error)
@@ -121,7 +120,6 @@ class AdminController {
       await Category.create({name})
       res.status(201).json({message : 'Success add category'})
     } catch (error) {
-      console.log(error)
       next(error)
     }
   }
@@ -139,7 +137,6 @@ class AdminController {
       })
       res.status(200).json({msg : 'Category has been deleted'})
     } catch (error) {
-      console.log(error)
       next(error)
     }
   }
@@ -170,7 +167,6 @@ class AdminController {
       })
       res.status(200).json({message : 'Success update category'})
     } catch (error) {
-      console.log(error)
       next(error)
     }
   }
@@ -188,7 +184,6 @@ class AdminController {
           id
         }
       })
-      
       res.status(201).json({message : 'Item created successfully'})
     } catch (error) { 
       next(error)

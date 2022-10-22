@@ -51,7 +51,7 @@ const TableRowList = ({item,index}) => {
         <td>
         {
           item.Ingredients?.map((ingredient,index)=>{
-            return <> <p key={index}>- {ingredient.name}</p>
+            return < > <p key={index}>- {ingredient.name}</p>
             </>
           })
         }

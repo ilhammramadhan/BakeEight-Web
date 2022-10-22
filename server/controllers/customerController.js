@@ -14,15 +14,19 @@ class CustomerController{
       const {itemId} = req.params
       const availItem = await Item.findByPk(itemId)
       if(!availItem){
-        throw {name : 'Item not found'}
+        throw {name : 'Not Found'}
       }
       const itemDetail = await Item.findOne({
-        include : Category,Ingredient,
+        include : [{
+          model : Category
+        },{
+          model : Ingredient
+        }],
         where : {
           id : availItem.id
         }
       })
-      re.status(200).json(itemDetail)
+      res.status(200).json(itemDetail)
     } catch (error) {
       next(error)
     }

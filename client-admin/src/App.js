@@ -7,7 +7,6 @@ import {Provider as ReduxProvider} from 'react-redux'
 import store from "./store";
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function App() {
   return (
       <ReduxProvider store={store}>

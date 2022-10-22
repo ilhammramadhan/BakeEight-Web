@@ -15,8 +15,6 @@ let authentication = async (request,response,next)=> {
     }
     request.user = {
       id : loggedInUser.id,
-      email : loggedInUser.email,
-      role : loggedInUser.role
     }
     next()
   } catch (error) {

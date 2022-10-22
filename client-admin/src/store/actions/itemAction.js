@@ -1,5 +1,8 @@
 import { FETCH_DETAILITEM_SUCCESS, FETCH_ITEMS_SUCCESS} from "./actionType"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
+const MySwal = withReactContent(Swal)
 
 export const fetchSuccessReducer= (data)=> {
   return {
@@ -63,10 +66,17 @@ export const addItemEffect = (inputItem) => {
         },
         body: JSON.stringify(inputItem)
       })
-      if (!response.ok) throw new Error('Something Wrong!')
+      if (!response.ok) throw await response.text()
       dispatch(fetchEffectItem())
     } catch (error) {
-      console.log(error)
+      const {message} = JSON.parse(error)
+      MySwal.fire({
+        icon: "warning",
+        title: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
     } finally {
     }
   }
@@ -101,7 +111,7 @@ export const editEffectItem = (inputItem,id) => {
         },
         body: JSON.stringify(inputItem)
       })
-      if (!response.ok) throw new Error('Something Wrong!')
+      if (!response.ok) throw await response.text()
       dispatch(fetchEffectItem())
     } catch (error) {
       console.log(error)

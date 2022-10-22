@@ -9,7 +9,6 @@ import FormModal from "./FormModal"
 const ListCakes = () =>{
   const [modalShow, setModalShow] = useState(false);
   const {items} = useSelector((state) => state.item)
-  console.log(items)
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(fetchEffectItem())

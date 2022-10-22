@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const MySwal = withReactContent(Swal)
+const urlApi = 'https://bake-eight.herokuapp.com/admin'
 
 export const fetchSuccessReducer= (data)=> {
   return {
@@ -23,7 +24,7 @@ export const fetchItemDetailReducer = (data) => {
 export const fetchEffectItem = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/items`,{
+      const response = await fetch(`${urlApi}/items`,{
         headers : {
           access_token : localStorage.getItem('access_token')
         }
@@ -41,7 +42,7 @@ export const fetchEffectItem = () => {
 export const deleteEffectItem = (id) => {
   return async (dispatch) => {
     try {
-      await fetch('http://localhost:3000/admin/items/' + id, {
+      await fetch(`${urlApi}/items/` + id, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ export const deleteEffectItem = (id) => {
 export const addItemEffect = (inputItem) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/items`, {
+      const response = await fetch(`${urlApi}/items`, {
         method: 'POST',
         headers: {
           access_token: localStorage.getItem('access_token'),
@@ -67,6 +68,14 @@ export const addItemEffect = (inputItem) => {
         body: JSON.stringify(inputItem)
       })
       if (!response.ok) throw await response.text()
+      const data= await response.json()
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       dispatch(fetchEffectItem())
     } catch (error) {
       const {message} = JSON.parse(error)
@@ -85,7 +94,7 @@ export const addItemEffect = (inputItem) => {
 export const fetchEffectOneItem = (id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/items/` + id, {
+      const response = await fetch(`${urlApi}/items/` + id, {
         headers: {
           access_token: localStorage.getItem('access_token')
         }
@@ -103,7 +112,7 @@ export const fetchEffectOneItem = (id) => {
 export const editEffectItem = (inputItem,id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/items/`+ id, {
+      const response = await fetch(`${urlApi}/items/`+ id, {
         method: 'PUT',
         headers: {
           access_token: localStorage.getItem('access_token'),
@@ -113,9 +122,22 @@ export const editEffectItem = (inputItem,id) => {
       })
       if (!response.ok) throw await response.text()
       dispatch(fetchEffectItem())
+      const data= await response.json()
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
-      console.log(error)
-    } finally {
-    }
+      const {message} = JSON.parse(error)
+      MySwal.fire({
+        icon: "warning",
+        title: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } 
   }
 }

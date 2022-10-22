@@ -1,5 +1,9 @@
 import { FETCH_CATEGORY_SUCCESS, FETCH_ONECATEGORY_SUCCESS } from "./actionType"
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
+const MySwal = withReactContent(Swal)
+const urlApi = 'https://bake-eight.herokuapp.com/admin'
 
 
 export const fetchCategoryReducer = (data) => {
@@ -19,7 +23,7 @@ export const fetchOneCategoryReducer = (data) => {
 export const fetchEffectCategory = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/category`, {
+      const response = await fetch(`${urlApi}/category`, {
         headers: {
           access_token: localStorage.getItem('access_token')
         }
@@ -37,7 +41,7 @@ export const fetchEffectCategory = () => {
 export const addEffectCategory = (inputCategory) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/category`, {
+      const response = await fetch(`${urlApi}/category`, {
         method: 'POST',
         headers: {
           access_token: localStorage.getItem('access_token'),
@@ -45,10 +49,24 @@ export const addEffectCategory = (inputCategory) => {
         },
         body: JSON.stringify(inputCategory)
       })
-      if (!response.ok) throw new Error('Something Wrong!')
+      if (!response.ok) throw await response.text()
+      const data = await response.json()
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       dispatch(fetchEffectCategory())
     } catch (error) {
-      console.log(error)
+      const {message} = JSON.parse(error)
+      MySwal.fire({
+        icon: "warning",
+        title: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } finally {
     }
   }
@@ -57,7 +75,7 @@ export const addEffectCategory = (inputCategory) => {
 export const deleteEffectCategory = (id) => {
   return async (dispatch) => {
     try {
-      await fetch('http://localhost:3000/admin/category/' + id, {
+      await fetch(`${urlApi}/category/` + id, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +92,7 @@ export const deleteEffectCategory = (id) => {
 export const fetchEffectOneCategory = (id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/category/` + id, {
+      const response = await fetch(`${urlApi}/category/` + id, {
         headers: {
           access_token: localStorage.getItem('access_token')
         }
@@ -92,7 +110,7 @@ export const fetchEffectOneCategory = (id) => {
 export const editEffectCategory = (inputCategory,id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`http://localhost:3000/admin/category/`+ id, {
+      const response = await fetch(`${urlApi}/category/`+ id, {
         method: 'PUT',
         headers: {
           access_token: localStorage.getItem('access_token'),
@@ -100,10 +118,24 @@ export const editEffectCategory = (inputCategory,id) => {
         },
         body: JSON.stringify(inputCategory)
       })
-      if (!response.ok) throw new Error('Something Wrong!')
+      if (!response.ok) throw await response.text()
+      const data = await response.json()
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       dispatch(fetchEffectCategory())
     } catch (error) {
-      console.log(error)
+      const {message} = JSON.parse(error)
+      MySwal.fire({
+        icon: "warning",
+        title: message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } finally {
     }
   }

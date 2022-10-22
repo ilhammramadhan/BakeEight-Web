@@ -14,7 +14,6 @@ const FormCategoryModal= (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEffectCategory(inputCategory))
-    props.onHide()
     setInputCategory({name : ''})
   }
   return (

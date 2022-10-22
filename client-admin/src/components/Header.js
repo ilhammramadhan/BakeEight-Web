@@ -40,7 +40,7 @@ const Header = () => {
 
     <Navbar bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand >BakeEight</Navbar.Brand>
+      <Navbar.Brand className="fw-bold text-shadow">Admin-BakeEight</Navbar.Brand>
       <Nav className="">
         <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
         <Nav.Link onClick={() => navigate('/category')} >Category</Nav.Link>

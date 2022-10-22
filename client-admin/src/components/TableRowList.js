@@ -6,6 +6,7 @@ import { useState } from "react"
 import FormModalEdit from "./FormModalEdit"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { formatPrice } from "../helpers/formatPrice"
 
 const TableRowList = ({item,index}) => {
   const MySwal = withReactContent(Swal)
@@ -46,7 +47,7 @@ const TableRowList = ({item,index}) => {
         <td>{index + 1}</td>
         <td>{item.name}</td>
         <td><img src={item.imgUrl} width={120} height={80} alt="croissant" /></td>
-        <td>{item.price}</td>
+        <td>{formatPrice(item.price)}</td>
         <td>{item.Category?.name}</td>
         <td>
         {
@@ -57,14 +58,15 @@ const TableRowList = ({item,index}) => {
         }
         </td>
         
-        <td><span >
+        <td> 
+          <span className="vertical-align-top" >
           <Button onClick={(e) => handleClickEdit(e,item.id)  } variant="dark" ><BsFillPencilFill className="text-warning" size={20} /></Button>
           {
             modalShow && <FormModalEdit show={modalShow}
             onHide={() => setModalShow(false)} id={item.id}/>
           }
          
-          </span><Button variant="dark"><BsTrash className="text-danger" size={20} onClick={(e) => deleteHandle(e,item.id)} /></Button></td>
+          </span> <Button variant="dark"><BsTrash className="text-danger" size={20} onClick={(e) => deleteHandle(e,item.id)} /></Button></td>
       </tr>
     </>
    

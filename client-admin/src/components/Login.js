@@ -13,9 +13,12 @@ import {
   from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 const Login = () => {
+  const MySwal = withReactContent(Swal)
   const navigate = useNavigate()
   const [loginInput, setLoginInput] = useState({
     email: '',
@@ -25,7 +28,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
-      const response = await fetch('http://localhost:3000/admin/login', {
+      const response = await fetch('https://bake-eight.herokuapp.com/admin/login', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -37,6 +40,13 @@ const Login = () => {
 
       toast.success("MY SUCCESS")
       localStorage.setItem('access_token', data.access_token)
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Login success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       navigate('/')
     } catch (error) {
       const { message } = JSON.parse(error)
@@ -47,8 +57,8 @@ const Login = () => {
 
   return (
     <>
-      <MDBContainer className="my-5" >
-        <MDBCard className="d-flex justify-content-center align-items-center">
+      <MDBContainer className="my-5 " >
+        <MDBCard className="mt-4">
           <MDBRow className='g-0'>
             <MDBCol md='6' >
               <MDBCardImage src='https://akarapi.b-cdn.net/wp-content/uploads/2021/01/Logo-Holland-Bakery-Baru.jpg' alt="login form" className='rounded-start w-100' />

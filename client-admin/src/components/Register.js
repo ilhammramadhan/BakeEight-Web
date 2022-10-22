@@ -11,8 +11,13 @@ import { toast, ToastContainer } from 'react-toastify';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react'
 import { Button } from 'react-bootstrap';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
 
 const Register = (props) => {
+  const MySwal = withReactContent(Swal)
   const [registerInput, setRegisterInput] = useState({
     username: '',
     email: '',
@@ -35,7 +40,7 @@ const Register = (props) => {
   const handleRegister = async (e) => {
     try {
       e.preventDefault();
-      const response = await fetch('http://localhost:3000/admin/register', {
+      const response = await fetch('https://bake-eight.herokuapp.com/admin/register', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -44,6 +49,14 @@ const Register = (props) => {
         body: JSON.stringify(registerInput),
       })
       if (!response.ok) throw await response.text()
+      const data= await response.json()
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
       props.onHide()
     } catch (error) {
       const { message } = JSON.parse(error)

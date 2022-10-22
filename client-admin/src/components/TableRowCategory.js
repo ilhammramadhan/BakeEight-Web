@@ -6,6 +6,7 @@ import { useState } from "react";
 import FormEditCategory from "./FormEditCategory";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { formatDate } from "../helpers/formatDate";
 
 const TableRowCategory = ({category,index}) => {
     const MySwal = withReactContent(Swal)
@@ -48,16 +49,17 @@ const TableRowCategory = ({category,index}) => {
      <tr>
         <td>{index + 1}</td>
         <td>{category.name}</td>
-        <td>{category.createdAt}</td>
-        <td>{category.updatedAt}</td>
-        <td><span >
-          <Button onClick={(e) => handleClickEdit(e,category.id)  } variant="dark" ><BsFillPencilFill className="text-warning" size={20} /></Button>
+        <td>{formatDate(category.createdAt)}</td>
+        <td>{formatDate(category.updatedAt)}</td>
+        <td>
+          <span className="vertical-align-top ml-2" >
+          <Button onClick={(e) => handleClickEdit(e,category.id)  } variant="dark" ><BsFillPencilFill className="text-warning ml-4" size={20} /></Button>
           {
             modalShow && <FormEditCategory show={modalShow}
             onHide={() => setModalShow(false)} id={category.id}/>
           }
           </span>
-        <Button className="ml-4" variant="dark"><BsTrash className="text-danger" size={20} onClick={(e) => deleteHandle(e,category.id)} /></Button></td>
+        <Button  variant="dark"><BsTrash className="text-danger" size={20} onClick={(e) => deleteHandle(e,category.id)} /></Button></td>
       </tr>
     </>
    

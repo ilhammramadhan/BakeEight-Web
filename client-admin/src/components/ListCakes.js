@@ -16,8 +16,13 @@ const ListCakes = () =>{
   
   return (
     <Container className="mt-4">
-     
-      <button onClick={() => setModalShow(true) } type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
+      <div>
+        <h3 className="text-center fw-bold text-warning">List Cake</h3>
+      </div>
+        <div className="d-flex justify-content-end">
+        <button  onClick={() => setModalShow(true) } type="button" className="btn btn-dark mb-2 justify-content-center">Add New Product</button>
+        </div>
+      
       <FormModal show={modalShow}
         onHide={() => setModalShow(false)} />
       <Table striped bordered hover variant="dark">

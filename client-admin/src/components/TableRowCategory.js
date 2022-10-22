@@ -4,13 +4,37 @@ import { deleteEffectCategory, fetchEffectOneCategory } from "../store/actions/c
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import FormEditCategory from "./FormEditCategory";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const TableRowCategory = ({category,index}) => {
+    const MySwal = withReactContent(Swal)
     const dispatch = useDispatch()
     const [modalShow, setModalShow] = useState(false);
+
     const deleteHandle = (e,id) => {
-      e.preventDefault();
-      dispatch(deleteEffectCategory(id))
+      MySwal.fire({
+        title: "Are you sure want to delete?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#0000FF",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Delete",
+      }).then((logout)=>{
+        if (logout.isConfirmed) {
+          MySwal.fire({
+            position: "center",
+            icon: "success",
+            title: "Delete Success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          e.preventDefault();
+          dispatch(deleteEffectCategory(id))
+        }
+      })
+     
     }
 
     const handleClickEdit = (e,id) => {

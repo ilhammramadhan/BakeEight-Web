@@ -40,7 +40,7 @@ const Login = () => {
 
       toast.success("MY SUCCESS")
       localStorage.setItem('access_token', data.access_token)
-      Swal.fire({
+      MySwal.fire({
         position: "center",
         icon: "success",
         title: "Login success",

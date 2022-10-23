@@ -44,11 +44,11 @@ const TableRowList = ({item,index}) => {
   return (
     <>
      <tr>
-        <td>{index + 1}</td>
-        <td>{item.name}</td>
-        <td><img src={item.imgUrl} width={120} height={80} alt="croissant" /></td>
-        <td>{formatPrice(item.price)}</td>
-        <td>{item.Category?.name}</td>
+        <td className ="align-middle">{index + 1}</td>
+        <td className ="align-middle">{item.name}</td>
+        <td><img src={item.imgUrl} width={120} height={80} style={{objectFit : 'cover'}} alt="croissant" /></td>
+        <td className ="align-middle" >{formatPrice(item.price)}</td>
+        <td className ="align-middle" >{item.Category?.name}</td>
         <td>
         {
           item.Ingredients?.map((ingredient,index)=>{
@@ -58,7 +58,7 @@ const TableRowList = ({item,index}) => {
         }
         </td>
         
-        <td> 
+        <td className ="align-middle"> 
           <span className="vertical-align-top" >
           <Button onClick={(e) => handleClickEdit(e,item.id)  } variant="dark" ><BsFillPencilFill className="text-warning" size={20} /></Button>
           {

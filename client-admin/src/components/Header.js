@@ -49,6 +49,7 @@ const Header = () => {
             modalShow && <Register show={modalShow}
             onHide={() => setModalShow(false)} />
         }
+        <Nav.Link href="https://bake-eight-customer.web.app/">Customer Web</Nav.Link>
         <Nav.Link onClick={() => handleLogout() }>Logout</Nav.Link>
       </Nav>
     </Container>

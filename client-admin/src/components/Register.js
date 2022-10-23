@@ -50,7 +50,7 @@ const Register = (props) => {
       })
       if (!response.ok) throw await response.text()
       const data= await response.json()
-      Swal.fire({
+      MySwal.fire({
         position: "center",
         icon: "success",
         title: data.message,

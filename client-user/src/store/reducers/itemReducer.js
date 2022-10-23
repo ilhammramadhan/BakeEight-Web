@@ -4,7 +4,7 @@ const initialState = { data: [] , detail : {} , loading:false }
 
 
 
-function productReducer(state = initialState, action) {
+function itemReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_PRODUCT_SUCCESS:
       return { ...state,data: action.payload }
@@ -17,7 +17,7 @@ function productReducer(state = initialState, action) {
   }
 }
 
-export default productReducer
+export default itemReducer
 
 
 

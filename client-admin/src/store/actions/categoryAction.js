@@ -1,4 +1,4 @@
-import { FETCH_CATEGORY_SUCCESS, FETCH_ONECATEGORY_SUCCESS } from "./actionType"
+import { FETCH_CATEGORY_SUCCESS, FETCH_ONECATEGORY_SUCCESS, LOADING_FETCH_CATEGORY } from "./actionType"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -20,8 +20,16 @@ export const fetchOneCategoryReducer = (data) => {
   }
 }
 
+export const loadingFetchCategory = (loading) => {
+  return {
+    type : LOADING_FETCH_CATEGORY,
+    loading : loading
+  }
+}
+
 export const fetchEffectCategory = () => {
   return async (dispatch) => {
+    dispatch(loadingFetchCategory(true))
     try {
       const response = await fetch(`${urlApi}/category`, {
         headers: {
@@ -34,6 +42,7 @@ export const fetchEffectCategory = () => {
     } catch (error) {
       console.log(error)
     } finally {
+      dispatch(loadingFetchCategory(false))
     }
   }
 }

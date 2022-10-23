@@ -1,4 +1,7 @@
 import {Carousel} from "react-bootstrap"
+import carousel1 from './assets/carousel-1.jpeg'
+import carousel2 from './assets/carousel-2.jpg'
+import carousel3 from './assets/carousel-3.jpg'
 
 const ImageCarousel = () =>{
   return (
@@ -7,44 +10,26 @@ const ImageCarousel = () =>{
       <Carousel.Item>
         <img
           className='d-block w-100'
-          style ={{width :"1080px",height:"720px"}}
-          src="https://cdn.pixabay.com/photo/2016/04/14/20/15/muffins-1329679_960_720.jpg"
+          style ={{width :"1080px",height:"580px"}}
+          src={carousel1}
           alt='First slide'
         />
-        <Carousel.Caption className='position-absolute'>
-          <div className='af-position-lg af-bg-dark-transparent py-3'>
-            <h3>test</h3>
-            <p>test</p>
-          </div>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className='d-block w-100'
-          style ={{width :"1080px",height:"720px"}}
-          src="https://cdn.pixabay.com/photo/2016/04/14/20/15/muffins-1329679_960_720.jpg"
+          style ={{width :"1080px",height:"580px"}}
+          src={carousel2}
           alt='Third slide'
         />
-        <Carousel.Caption className='position-absolute'>
-          <div className='af-position-lg af-bg-dark-transparent py-3'>
-            <h3>Croissant</h3>
-            <p>Lorem Ipsum</p>
-          </div>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className='d-block w-100'
-          style ={{width :"1080px",height:"720px"}}
-          src="https://cdn.pixabay.com/photo/2016/04/14/20/15/muffins-1329679_960_720.jpg"
+          style ={{width :"1080px",height:"580px"}}
+          src={carousel3}
           alt='Third slide'
         />
-        <Carousel.Caption className='position-absolute'>
-          <div className='af-position-lg af-bg-dark-transparent py-3'>
-            <h3>test</h3>
-            <p>test</p>
-          </div>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   </div>

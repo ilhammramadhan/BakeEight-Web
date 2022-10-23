@@ -1,33 +1,17 @@
 [
   {
-    "name": "Beef & Cheese Croissant",
-    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
-    "price": 10021,
-    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
-    "UserId": 1,
-    "CategoryId": 1
-  },
-  {
     "name": "Almond Croissant",
     "description": "Croissant dengan irisan almond dan isi krim.",
-    "price": 10021,
+    "price": 26.100,
     "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
     "UserId": 1,
-    "CategoryId": 1
+    "CategoryId": 3
   },
   {
-    "name": "Beef & Cheese Croissant",
-    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
-    "price": 10021,
-    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
-    "UserId": 1,
-    "CategoryId": 1
-  },
-  {
-    "name": "Almond Croissant",
-    "description": "Croissant dengan irisan almond dan isi krim.",
-    "price": 10021,
-    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "name": "Spicy Croque Monsieur",
+    "description": "Roti berisi daging asap dengan lelehan keju dan saus bechamel.",
+    "price": 22000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Spicy-Croque-Monsieur.jpg",
     "UserId": 1,
     "CategoryId": 1
   },
@@ -37,30 +21,54 @@
     "price": 10021,
     "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
     "UserId": 1,
-    "CategoryId": 1
+    "CategoryId": 3
   },
   {
-    "name": "Almond Croissant",
-    "description": "Croissant dengan irisan almond dan isi krim.",
-    "price": 10021,
-    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "name": "Ovomaltine Flash Bread",
+    "description": "Roti berisi ovomaltine yang crunchy.",
+    "price": 18000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/512px-ovomaltine-flash-bread.png",
+    "UserId": 1,
+    "CategoryId": 3
+  },
+  {
+    "name": "Choco Roll Danish",
+    "description": "Lezatnya coklat premium dalam balutan roti danish yang lembut.",
+    "price": 34000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2022/08/choco-roll-600x368.jpg",
+    "UserId": 1,
+    "CategoryId": 4
+  },
+  {
+    "name": "Tuna Cheese Sandwich",
+    "description": "Paduan seru Tuna dan keju dibalut dengan roti yang lembut untuk semangati harimu.",
+    "price": 32000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2022/07/App-Image-Tuna-Sandwich-600x368.jpg",
     "UserId": 1,
     "CategoryId": 1
   },
   {
-    "name": "Beef & Cheese Croissant",
-    "description": "Croissant dengan irisan tipis daging sapi dan melted cheese.",
-    "price": 10021,
+    "name": "Butter Croissant",
+    "description": "Croisaant dengan aroma butter.",
+    "price": 20000,
     "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Beef-Cheese-Croissant-.jpg",
     "UserId": 1,
-    "CategoryId": 1
+    "CategoryId": 6
   },
   {
-    "name": "Almond Croissant",
-    "description": "Croissant dengan irisan almond dan isi krim.",
-    "price": 10021,
-    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/Almond-Croissant-600x600.jpg",
+    "name": "Stroopwafel Caramel",
+    "description": "Perpaduan tekstur wafel yang renyah dengan rasa caramel premium.",
+    "price": 16000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/11/Plain-App-Images-600x368.jpg",
     "UserId": 1,
-    "CategoryId": 1
+    "CategoryId": 3
+  },
+  {
+    "name": "Stroopwafel Coklat",
+    "description": "Perpaduan tekstur wafel yang renyah dengan rasa coklat premium.",
+    "price": 16000,
+    "imgUrl": "https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/11/Coklat-App-Image-600x368.jpg",
+    "UserId": 1,
+    "CategoryId": 3
   }
 ]

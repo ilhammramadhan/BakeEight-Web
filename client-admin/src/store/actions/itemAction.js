@@ -1,4 +1,4 @@
-import { FETCH_DETAILITEM_SUCCESS, FETCH_ITEMS_SUCCESS} from "./actionType"
+import { FETCH_DETAILITEM_SUCCESS, FETCH_ITEMS_SUCCESS, LOADING_FETCH_ITEM} from "./actionType"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -19,10 +19,18 @@ export const fetchItemDetailReducer = (data) => {
   }
 }
 
+export const loadingFetchItem = (loading) => {
+  return {
+    type : LOADING_FETCH_ITEM,
+    loading : loading
+  }
+}
+
 
 
 export const fetchEffectItem = () => {
   return async (dispatch) => {
+    dispatch(loadingFetchItem(true))
     try {
       const response = await fetch(`${urlApi}/items`,{
         headers : {
@@ -35,6 +43,7 @@ export const fetchEffectItem = () => {
     } catch (error) {
       console.log(error)
     }finally {
+      dispatch(loadingFetchItem(false))
     }
   }
 }
